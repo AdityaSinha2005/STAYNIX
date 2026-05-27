@@ -24,6 +24,44 @@ min-width:80px;
 transition:0.2s;
 }
 
+.card{
+border:none !important;
+transition:transform 0.3s ease;
+overflow:hidden;
+}
+
+@media (min-width:769px){
+
+.card:hover{
+transform:translateY(-5px);
+}
+}
+.card-img-overlay{
+opacity:0;
+}
+
+.card-img-overlay:hover{
+opacity:0.15;
+background:white;
+}
+
+@media (max-width:576px){
+
+.listing-img{
+height:13rem;
+}
+
+.tax-toggle{
+padding:0.5rem;
+font-size:0.75rem;
+}
+
+.filter p{
+font-size:0.7rem;
+}
+
+}
+
 .filter:hover{
 opacity:1;
 cursor:pointer;
@@ -52,8 +90,60 @@ border-radius:1rem;
 margin-top:0.8rem;
 white-space:nowrap;
 }
+
+.listing-img{
+    width:100%;
+    height:20rem;
+    object-fit:cover;
+    border-radius: 1rem 1rem 0 0;
+}
+
+.listing-link{
+text-decoration:none;
+color:black;
+display:block;
+width:100%;
+}
+
+@media (max-width:768px){
+
+#filters{
+gap:1rem;
+}
+
+.filter{
+min-width:65px;
+}
+
+.filter i{
+font-size:1rem;
+}
+
+.tax-toggle{
+margin-left:0;
+margin-right:1rem;
+font-size:0.8rem;
+}
+
+.listing-img{
+height:15rem;
+}
+
+.card-text{
+font-size:0.9rem;
+}
+
+}
 </style>
 
+<div class="hero-section text-center mb-5">
+<h1>
+Travel Smart with StayNix
+</h1>
+<p>
+Find amazing stays around the world
+</p>
+</div>
 
 <div id="filters">
 
@@ -140,9 +230,7 @@ Display total after taxes
 </div>
 
 
-
-
-<div class="row row-cols-lg-3 row-cols-md-2 row-cols-1 mt-3">
+<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-3">
 
 <% if(allListings.length===0){ %>
 
@@ -154,11 +242,13 @@ No listings found
 
 <% for(let listing of allListings){ %>
 
+<div class="col mb-4">
 <a href="/listings/<%= listing.id %>" class="listing-link">
 
-<div class="card col" data-price="<%= listing.price %>">
 
-<img src="<%= listing.image.url %>" class="card-img-top" alt="listing-image" style="height:20rem;">
+<div class="card h-100" data-price="<%= listing.price %>">
+
+<img src="<%= listing.image.url %>" class="card-img-top listing-img" alt="listing-image">
 
 <div class="card-img-overlay"></div>
 
@@ -182,6 +272,8 @@ No listings found
 </div>
 
 </a>
+
+</div>
 
 <% } %>
 

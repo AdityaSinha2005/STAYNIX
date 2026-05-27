@@ -1,5 +1,5 @@
 <style>
-  .search-form{
+.search-form{
 display:flex;
 align-items:center;
 gap:0.8rem;
@@ -7,25 +7,21 @@ gap:0.8rem;
 
 .search-input{
 width:18rem;
-border-radius:1rem;
+border-radius:2rem;
 padding:0.7rem 1rem;
 }
 
 .btn-search{
 background:#fe424d;
 color:white;
-
 border-radius:2rem;
-
 padding:0.5rem 1rem;
-
 display:flex;
 align-items:center;
 justify-content:center;
-
 gap:0.5rem;
-
 width:8rem;
+border:none;
 }
 
 .btn-search:hover{
@@ -35,6 +31,28 @@ color:white;
 
 .btn-search i{
 margin:0;
+}
+
+@media (max-width:768px){
+
+.search-form{
+flex-direction:column;
+width:100%;
+margin-top:1rem;
+}
+
+.search-input{
+width:100%;
+}
+
+.btn-search{
+width:100%;
+}
+
+.navbar-nav{
+text-align:center;
+}
+
 }
 
 </style>
@@ -51,8 +69,8 @@ margin:0;
         <a class="nav-link" href="/listings">Explore</a>
       </div>
 
-     <div class="navbar-nav ms-auto">
-      <form class="d-flex search-form ms-auto" role="search"  action="/listings" method="GET">
+     <div class="mx-auto my-2">
+      <form class="d-flex search-form " role="search"  action="/listings" method="GET">
 
       <input
       class="form-control search-input"
@@ -70,8 +88,8 @@ margin:0;
     </div>
 
 
-      <div class="navbar-nav ms-auto" >
-         <a class="nav-link" href="/listings/new">Staynix your space</a>
+      <div class="navbar-nav ms-md-auto text-center" >
+         <a class="nav-link fw-semibold" href="/listings/new">Staynix your space</a>
         <% if(!currentUser) { %>
           <a class="nav-link"  href="/signup"><b>Sign Up</b></a>
           <a class="nav-link" href="/login"><b>Log In</b></a>

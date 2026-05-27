@@ -1,8 +1,7 @@
 <% layout("layouts/boilerplate") %>
 
-<div class="row mt-4">
-
-    <div class="col-8 offset-2">
+<div class="row justify-content-center mt-4">
+   <div class="col-12 col-md-10 col-lg-8">
 
         <h3 class="mb-3"><%= listing.title %></h3>
 
@@ -32,41 +31,32 @@
 
             <div id="map"></div>
 
-            <style>
-            #map{
-            height:400px;
-            width:100%;
-            margin-top:20px;
-            border-radius:12px;
-            }
-            </style>
 
                 <% if(currentUser && listing.owner._id.equals(currentUser._id)) { %>
 
-    <a href="/listings/<%= listing.id %>/edit" class="btn btn-dark me-2">
-        Edit
-    </a>
+    <div class="d-grid gap-2 d-md-flex mt-3">
 
-    <form method="POST"
-    action="/listings/<%= listing.id %>?_method=DELETE"
-    style="display:inline;">
+        <a href="/listings/<%= listing.id %>/edit" class="btn btn-dark"> Edit </a>
 
-        <button class="btn btn-danger">
-            Delete
-        </button>
+        <div class="mt-2">
+        <form method="POST" action="/listings/<%= listing.id %>?_method=DELETE">
 
-    </form>
+        <button class="btn btn-danger">Delete</button>
+
+        </form>
+        </div>
+        </div>
 
 <% } %>
 
             </div>
 
-            <div class="col-8 offset-2">
+            <div class="col-12">
 
                 <hr>
 
                 <% if(currentUser) { %>
-
+                
                 <h5>Leave a Review</h5>
 
                 <form action="/listings/<%= listing.id %>/reviews" method="POST" novalidate class="needs-validation">
@@ -166,48 +156,62 @@
 
                
                 <% if(listing.reviews.length >0) { %>
-                    
+
                 <div class="row">
-                     <h4 class="mt-4 mb-3">All Reviews</h4>
-                    <% for(let review of listing.reviews) { %>
 
-                    <div class="col-md-6 mb-4">
+                <h4 class="mt-4 mb-3">
+                All Reviews
+                </h4>
 
-                        <div class="card review-card">
+                <% for(let review of listing.reviews) { %>
 
-                            <div class="card-body">
-                                <h5 class="card-title"><%= review.author.username %></h5>
-                                <p class="card-text">
-                                    Rating: <%= review.rating %> ⭐
-                                </h5>
+                <div class="col-12 col-md-6 mb-4">
 
-                                <p class="card-text">
-                                    <%= review.comment %>
-                                </p>
+                <div class="card review-card">
 
-                            </div>
+                <div class="card-body">
 
-                        </div>
+                <h5 class="card-title">
+                <%= review.author.username %>
+                </h5>
 
-                    </div>
+                <p class="card-text">
+                Rating: <%= review.rating %> ⭐
+                </p>
 
-                    <% if(currentUser) { %>
+                <p class="card-text">
+                <%= review.comment %>
+                </p>
 
-                    <form method="POST" action="/listings/<%= listing._id %>/reviews/<%= review._id %>?_method=DELETE">
-                   
-                        <button class="btn btn-sm btn-danger">
-                            Delete
-                        </button>
-                    </form>
-                    <% } %>
-                    <% } %>
-                </div>
-                <% } %>
-            </div>
+                <% if(currentUser) { %>
+
+               <form
+                method="POST"
+                action="/listings/<%= listing.id %>?_method=DELETE">
+
+                <button class="btn btn-danger">
+                Delete
+                </button>
+
+                </form>
+
+<% } %>
+
+</div>
+
+</div>
+
+</div>
+
+<% } %>
+
+</div>
+
+<% } %>
         </div>
     </div>
 </div>
-
+</div>
 <script>
 
 let lng = "<%= listing.geometry.coordinates[0] %>";
