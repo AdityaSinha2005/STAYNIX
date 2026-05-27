@@ -1,0 +1,151 @@
+<% layout("Layouts/boilerplate") %>
+
+<div class="row">
+<div class="col-8 offset-2">
+
+<br><br><br>
+
+<h3>Create a New Listing</h3>
+
+<form method="POST" action="/listings" novalidate class="needs-validation" enctype="multipart/form-data">
+
+<div class="mb-3">
+<label class="form-label">Title</label>
+
+<input
+type="text"
+name="listing[title]"
+placeholder="Add a catchy title"
+class="form-control"
+required>
+</div>
+
+<div class="mb-3">
+<label class="form-label">Description</label>
+
+<textarea
+name="listing[description]"
+placeholder="Description"
+class="form-control"
+required></textarea>
+</div>
+
+<div class="row">
+
+<div class="mb-3 col-md-4">
+<label class="form-label">Price</label>
+
+<input
+type="number"
+name="listing[price]"
+placeholder="5000"
+class="form-control"
+required>
+</div>
+
+<div class="mb-3 col-md-8">
+<label class="form-label">Country</label>
+
+<input
+type="text"
+name="listing[country]"
+placeholder="India"
+class="form-control"
+required>
+</div>
+
+</div>
+
+<div class="mb-3">
+<label class="form-label">Upload Image</label>
+
+<input
+type="file"
+name="listing[image]"
+class="form-control" required>
+</div>
+
+<div class="mb-3">
+
+<label class="form-label">
+Category
+</label>
+
+<select
+name="listing[category]"
+class="form-select"
+required>
+
+<option value="">
+Select Category
+</option>
+
+<option value="trending">
+Trending
+</option>
+
+<option value="iconic-cities">
+Iconic Cities
+</option>
+
+<option value="mountains">
+Mountains
+</option>
+
+<option value="castles">
+Castles
+</option>
+
+<option value="swimming">
+Swimming Pools
+</option>
+
+<option value="boats">
+Boats
+</option>
+
+<option value="beach">
+Beach
+</option>
+
+<option value="wellness">
+Wellness
+</option>
+
+<option value="hiking">
+Hiking
+</option>
+
+<option value="tents">
+Tents
+</option>
+
+</select>
+
+</div>
+
+
+
+<div class="mb-3">
+<label class="form-label">Location</label>
+
+<input
+type="text"
+name="listing[location]"
+placeholder="Patna, Bihar"
+class="form-control"
+required>
+</div>
+
+<br>
+
+<button class="btn btn-dark add-btn">
+Add Listing
+</button>
+
+<br><br>
+
+</form>
+
+</div>
+</div>
