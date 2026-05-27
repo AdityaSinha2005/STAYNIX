@@ -232,3 +232,64 @@ border-color:#fe424d;
 box-shadow:
 0 0 8px rgba(254,66,77,0.25);
 }
+
+/* NAVBAR MOBILE FIX */
+
+.search-wrapper{
+flex:1;
+display:flex;
+justify-content:center;
+}
+
+.search-form{
+display:flex;
+align-items:center;
+gap:0.8rem;
+}
+
+.search-input{
+width:18rem;
+border-radius:2rem;
+padding:0.7rem 1rem;
+}
+
+.btn-search{
+background:#fe424d;
+color:white;
+border:none;
+border-radius:2rem;
+padding:0.6rem 1rem;
+width:8rem;
+}
+
+@media(max-width:768px){
+
+.search-wrapper{
+width:100%;
+order:3;
+margin-top:1rem;
+}
+
+.search-form{
+width:100%;
+flex-direction:column;
+}
+
+.search-input{
+width:100%;
+}
+
+.btn-search{
+width:100%;
+}
+
+.navbar-nav{
+width:100%;
+text-align:center;
+}
+
+.nav-link{
+padding:0.7rem 0;
+}
+
+}
