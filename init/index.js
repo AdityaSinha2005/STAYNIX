@@ -1,8 +1,9 @@
+require("dotenv").config();
 const mongoose=require("mongoose");
 const initdata =require("./data.js");
 const listing=require("../models/listing.js");
 
-const MONGO_URL="mongodb://127.0.0.1:27017/staynix";
+const MONGO_URL = process.env.ATLASDB_URL;
 
 main().then(() =>{
     console.log("connected to MongoDB");
